@@ -1,0 +1,47 @@
+//Font
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Manrope:wght@500&display=swap');
+
+html{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: black;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+h1{
+  
+  color: var(--colorMidGray);
+}
+
+a {color: var(--colorMidGray); }
+a:visited {color: var(--colorMidGray); }
+a:active {color: var(--colorMarigold); }
+
+p {
+  font-size: 14px;
+  line-height: 26px;
+  color: var(--colorMidGray);
+}
+
+.App {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+:root {
+  --colorDarkGray: #232323;
+  --colorMidGray: #232323;
+  --colorLightGray: #D0D0D0;
+  --colorCocoa: #7E5036;
+  --colorCocoaLight: #C5A47B;
+  --colorCaramel: #B58C58;
+  --colorOffWhite: #F4F4F4;
+}
