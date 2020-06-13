@@ -14,8 +14,11 @@ body {
 }
 
 h1{
-  
-  color: var(--colorMidGray);
+  font-size: 24px;
+  color: var(--colorLightGray);
+  font-weight: bolder;
+  letter-spacing: -1px;
+  line-height: 30px;
 }
 
 a {color: var(--colorMidGray); }
@@ -23,9 +26,7 @@ a:visited {color: var(--colorMidGray); }
 a:active {color: var(--colorMarigold); }
 
 p {
-  font-size: 14px;
-  line-height: 26px;
-  color: var(--colorMidGray);
+  font-size: 11px;
 }
 
 .App {

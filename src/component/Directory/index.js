@@ -16,6 +16,9 @@ class Directory extends React.Component {
     this.state = {
       allEntries: [],
       relevantEntries: [],
+      searchMode: true,
+      query: '',
+      category: '',
     };
 
     // Binding
@@ -44,9 +47,7 @@ class Directory extends React.Component {
     if(entries.length > 0){
       this.setState({
         relevantEntries: entries,
-        selectedEntry: entries[0],
-        selectedIndex: 0,
-        haveResults: true
+        selectedEntry: entries[0]
       });
     }
     else{
@@ -57,13 +58,28 @@ class Directory extends React.Component {
   }
 
   render() {
+
+    let { searchMode } = this.state;
+
     return (
       <div className="Directory">
         <PageContainer>
-          <div className="Wrapper">
+          <div className="Wrapper" data-searchmode={searchMode}>
             <div className="VideoWrapper">
               <video autoPlay playsInline muted loop src={bgvideo}></video>
             </div>
+
+            <div className="Welcome">
+              <div className="Accent"></div>
+              <h1>Discover Irish-owned businesses</h1>
+            </div>
+
+            <input type="text"/>
+
+            <div className="AfterSearch">
+              <h3>More</h3>
+            </div>
+            
           </div>
         </PageContainer>
       </div>
