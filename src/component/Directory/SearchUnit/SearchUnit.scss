@@ -1,0 +1,49 @@
+.SearchUnit{
+    display: flex;
+    width: 100%;
+    margin-top: 25px;
+
+    .SearchBarContainer{
+        width: 100%;
+        max-width: 600px;
+        background-color: var(--colorOffWhite);
+        height: 50px;
+        padding: 8px;
+        border-radius: 4px;
+
+        display: flex;
+        flex-direction: row;
+
+        select{
+            border: none;
+            height: 100%;
+            appearance: none;
+            text-align: center;
+            padding: 8px;
+            width: 30%;
+            margin-right: 2vw;
+
+            color: var(--colorCaramel);
+            font-weight: bolder;
+            background: #FFFFFF;
+            border: 1px solid rgba(255,255,255,0.13);
+            box-shadow: 0 0 5px 0 #DADADA;
+            border-radius: 4px;
+            font-size: 12px;
+
+            text-overflow: ellipsis;
+        }
+
+        input{
+            width: 100%;
+            border: none;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            outline: none;
+            background-color: transparent;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+    }
+}

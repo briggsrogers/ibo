@@ -1,11 +1,12 @@
 import React from "react";
 import "./Directory.scss";
 
-import PageContainer from '../PageContainer';
+import PageContainer from "../PageContainer";
 
-import bgvideo from '../../assets/videos/ibo-bg-r1.mp4';
+import bgvideo from "../../assets/videos/ibo-bg-r1.mp4";
 
 import { getEntries } from "../../utils/data-helpers";
+import SearchUnit from "./SearchUnit";
 
 //import ReactGA from 'react-ga';
 
@@ -16,13 +17,13 @@ class Directory extends React.Component {
     this.state = {
       allEntries: [],
       relevantEntries: [],
-      searchMode: true,
-      query: '',
-      category: '',
+      searchMode: false,
+      categories: [],
     };
 
     // Binding
     this.setEntries = this.setEntries.bind(this);
+    this.setSearchMode = this.setSearchMode.bind(this);
   }
 
   componentDidMount() {
@@ -36,30 +37,43 @@ class Directory extends React.Component {
   }
 
   setEntries(entries) {
+
+    // Create an array of all categories
+    let categories = [];
+    entries.forEach( (item) => {
+      let cat = item.fields.Industry;
+      
+      if( cat && categories.indexOf(cat) === -1 ){
+        categories.push(cat);
+      }
+    })
+
     this.setState({
       allEntries: entries,
       relevantEntries: entries,
+      categories,
     });
   }
 
   updateRelavent(entries) {
-
-    if(entries.length > 0){
+    if (entries.length > 0) {
       this.setState({
         relevantEntries: entries,
-        selectedEntry: entries[0]
+        selectedEntry: entries[0],
       });
-    }
-    else{
+    } else {
       this.setState({
         haveResults: false,
-      })
+      });
     }
   }
 
-  render() {
+  setSearchMode(value) {
+    this.setState({ searchMode: value });
+  }
 
-    let { searchMode } = this.state;
+  render() {
+    let { allEntries, searchMode, categories } = this.state;
 
     return (
       <div className="Directory">
@@ -69,21 +83,25 @@ class Directory extends React.Component {
               <video autoPlay playsInline muted loop src={bgvideo}></video>
             </div>
 
-            <div className="Welcome">
+            <div className="Welcome" onClick={() => this.setSearchMode(false)}>
               <div className="Accent"></div>
-              <h1>Discover Irish-owned businesses</h1>
+              <h1>{`Discover ${allEntries.length} Irish black-owned businesses`}</h1>
             </div>
 
-            <input type="text"/>
+            <div
+              className="SearchContainer"
+              onClick={() => this.setSearchMode(true)}
+            >
+              <SearchUnit entries={allEntries} categories={categories}/>
+            </div>
 
             <div className="AfterSearch">
               <h3>More</h3>
             </div>
-            
           </div>
         </PageContainer>
       </div>
-      )
+    );
   }
 }
 

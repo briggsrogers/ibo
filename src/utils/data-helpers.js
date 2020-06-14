@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const AIRTABLE_ROOT = 'https://api.airtable.com/v0/appSZqziDUsRsJFv6/pourover-db?&view=Grid%20view'
+const AIRTABLE_ROOT = 'https://api.airtable.com/v0/appkTWOL5iNijtSO8/Imported%20table?view=Grid%20view'
 
 export const getEntries = (onSuccess) => {
 
@@ -50,7 +50,7 @@ export const getEntries = (onSuccess) => {
   }
 
   const isValid = (item) => {
-    return( item.fields && item.fields.Name && item.fields.Latitude && item.fields.Longitude )
+    return true
   }
   
   //First Fetch
