@@ -2,9 +2,9 @@
     display: flex;
     width: 100%;
     margin-top: 25px;
+    flex-direction: column;
 
     .SearchBarContainer{
-        width: 100%;
         max-width: 600px;
         background-color: var(--colorOffWhite);
         height: 50px;
@@ -45,5 +45,12 @@
             font-size: 14px;
             margin-left: 5px;
         }
+    }
+
+    .ResultsContainer{
+        h2{
+            color: white;
+        }
+        
     }
 }

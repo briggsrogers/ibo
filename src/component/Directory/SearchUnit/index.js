@@ -12,7 +12,8 @@ class SearchUnit extends React.Component {
     this.state = {
       query: "",
       category: "",
-      results: [],
+      categorizedResults: [],
+      searchResults: [],
     };
 
     this.searchInput = React.createRef(this.searchInput);
@@ -22,28 +23,54 @@ class SearchUnit extends React.Component {
     this.searchEntries = this.searchEntries.bind(this);
   }
 
+  componentDidMount() {
+    this.searchInput.current.focus();
+  }
+
   componentDidUpdate(prevProps) {
     //When data arrives
-    if(prevProps.entries.length !== this.props.entries.length){
-      this.filterEntries('All');
+    if (prevProps.entries.length !== this.props.entries.length) {
+      this.filterEntries("All");
     }
   }
 
-  generateOptions(){
+  generateOptions() {
     let { categories } = this.props;
     let optionsGroup = [];
 
-    categories.forEach( (item, index) => {
-      optionsGroup.push( <option key={index} value={item}>{item}</option> )
+    categories.forEach((item, index) => {
+      optionsGroup.push(
+        <option key={index} value={item}>
+          {item}
+        </option>
+      );
     });
 
     return optionsGroup;
   }
-  
+
+  generateResults() {
+    let { searchResults } = this.state;
+    let resultsGroup = [];
+
+    for (let i in searchResults) {
+      let item = searchResults[i].item
+        ? searchResults[i].item
+        : searchResults[i];
+
+      resultsGroup.push(
+        <div key={i}>
+          <h2>{item.fields.Name}</h2>
+        </div>
+      );
+    }
+    return resultsGroup;
+  }
+
   handleDropDownChange(e) {
     let { value } = e.target;
 
-    this.setState({ category: value });
+    //this.setState({ category: value });
 
     this.filterEntries(value);
 
@@ -54,26 +81,26 @@ class SearchUnit extends React.Component {
 
   filterEntries(value) {
     let { entries } = this.props;
-    let results = [];
+    let categorizedResults = [];
 
     //If all, use all entries
     if (value === "All") {
-      this.setState({ results: entries });
+      this.setState({ categorizedResults: entries, searchResults: [] });
       return;
     }
 
-    results = entries.filter((item) => {
+    categorizedResults = entries.filter((item) => {
       return item.fields.Industry === value;
     });
 
-    this.setState({ results });
+    this.setState({
+      categorizedResults,
+      searchResults: categorizedResults
+    });
   }
 
   searchEntries(e) {
-    let { entries } = this.props; //All entries
-    let { results } = this.state; //Categorized results
-
-    console.log('Searching in', results);
+    let { categorizedResults } = this.state;
 
     let { value } = e.target;
 
@@ -82,17 +109,18 @@ class SearchUnit extends React.Component {
     }
 
     const options = {
-      includeScore: true,
+      includeScore: false,
       keys: ["fields.Name", "fields.Description"],
     };
 
-    const fuse = new Fuse(results, options);
+    const fuse = new Fuse(categorizedResults, options);
+    const newResults = fuse.search(value);
 
-    const result = fuse.search(value);
-    console.log(result);
+    this.setState({ searchResults: newResults });
   }
 
   render() {
+
     return (
       <div className="SearchUnit">
         <div className="SearchBarContainer">
@@ -105,17 +133,16 @@ class SearchUnit extends React.Component {
           >
             <option value="All">All</option>
 
-            {
-              this.generateOptions()
-            }
+            {this.generateOptions()}
           </select>
           <input
             ref={this.searchInput}
             type="text"
-            placeholder="Bridal specialist"
+            placeholder="Search..."
             onKeyUp={this.searchEntries}
           />
         </div>
+        <div className="ResultsContainer">{this.generateResults()}</div>
       </div>
     );
   }
