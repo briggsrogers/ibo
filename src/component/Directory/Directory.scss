@@ -1,10 +1,11 @@
-.Directory{
-    .Wrapper{
+.Directory {
+    .Wrapper {
         height: 100vh;
         width: 100vw;
         margin: 16px;
+        overflow-y: scroll;
 
-        .VideoWrapper{
+        .VideoWrapper {
             position: absolute;
             top: 0;
             left: 0;
@@ -17,7 +18,7 @@
 
             pointer-events: none;
 
-            video{ 
+            video {
                 width: 80vw;
                 height: 80vh;
                 opacity: .14;
@@ -28,31 +29,80 @@
             }
         }
 
-        .Welcome{
-            transform: translate3d(0,0,0);
-            transition: transform, opacity, cubic-bezier(0.61, 1, 0.88, 1) .3s;
-            margin-top: 10vh;
+        .Welcome {
+            position: relative;
+            transform: translate3d(0, 0, 0);
+            transition: transform, opacity, cubic-bezier(0.61, 1, 0.88, 1) .2s;
+            margin-top: 20vh;
 
-            .Accent{
+            .Accent {
                 width: 30px;
                 height: 2px;
                 background-color: var(--colorCocoaLight);
             }
         }
 
-        .SearchContainer{
-            transform: translate3d(0,0,0);
-            transition: transform cubic-bezier(0.61, 1, 0.88, 1) .3s;
+        .SearchContainer {
+            transform: translate3d(0, 0, 0);
+            transition: transform cubic-bezier(0.61, 1, 0.88, 1) .2s;
         }
 
-        &[data-searchmode="true"]{
-            .Welcome{ 
-                opacity: .1; 
-                transform: translateY(-20vh);
+        &[data-searchmode="true"] {
+            .Welcome {
+                opacity: .3;
+                transform: translateY(-10vh) scale(.95);
             }
 
-            .SearchContainer{     
-                transform: translateY(-15vh);
+            .SearchContainer {
+                transform: translateY(-16vh);
+            }
+        }
+
+        .CategoryHotlinksContainer {
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            overflow-x: scroll;
+            margin-top: 10px;
+
+            scroll-snap-type: x mandatory;
+
+            &[data-active="true"] {
+                display: none;
+            }
+
+
+            animation: categoryBuildIn cubic-bezier(0.61, 1, 0.88, 1) .2s;
+
+
+            @keyframes categoryBuildIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0px);
+                }
+            }
+
+            span {
+                scroll-snap-align: start;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: var(--colorDarkGray);
+                border-radius: 6px;
+                margin: 4px;
+                padding: 12px;
+                min-width: 110px;
+                font-size: 12px;
+                color: var(--colorCocoaLight);
+                border: 1px rgba(0, 0, 0, .3);
+                word-break: break-all;
+
             }
         }
     }

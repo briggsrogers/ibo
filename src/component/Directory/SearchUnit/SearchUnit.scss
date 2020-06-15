@@ -5,7 +5,6 @@
     flex-direction: column;
 
     .SearchBarContainer{
-        max-width: 600px;
         background-color: var(--colorOffWhite);
         height: 50px;
         padding: 8px;
@@ -48,6 +47,9 @@
     }
 
     .ResultsContainer{
+        margin-top: 25px;
+        overflow-y: scroll;
+
         h2{
             color: white;
         }

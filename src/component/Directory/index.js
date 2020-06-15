@@ -19,6 +19,7 @@ class Directory extends React.Component {
       relevantEntries: [],
       searchMode: false,
       categories: [],
+      seedCategory: null
     };
 
     // Binding
@@ -72,8 +73,25 @@ class Directory extends React.Component {
     this.setState({ searchMode: value });
   }
 
+  handleCategoryClick(value){
+    this.setState({ seedCategory: value });
+  }
+
+  generateCategoryLinks() {
+    let { categories } = this.state;
+    let optionsGroup = [];
+
+    categories.forEach((item, index) => {
+      optionsGroup.push(
+        <span onClick = {() => this.handleCategoryClick(item)}>{item}</span>
+      );
+    });
+
+    return optionsGroup;
+  }
+
   render() {
-    let { allEntries, searchMode, categories } = this.state;
+    let { allEntries, searchMode, categories, seedCategory } = this.state;
 
     return (
       <div className="Directory">
@@ -92,11 +110,12 @@ class Directory extends React.Component {
               className="SearchContainer"
               onClick={() => this.setSearchMode(true)}
             >
-              <SearchUnit entries={allEntries} categories={categories}/>
+              <SearchUnit entries={allEntries} categories={categories} seedCategory={seedCategory} isSearchMode={searchMode}/>
             </div>
-
-            <div className="AfterSearch">
-              <h3>More</h3>
+            <div className="CategoryHotlinksContainer" data-active={searchMode}>
+              {
+                 this.generateCategoryLinks()
+              }
             </div>
           </div>
         </PageContainer>

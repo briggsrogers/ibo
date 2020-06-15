@@ -1,6 +1,8 @@
 import React from "react";
 import Fuse from "fuse.js";
 
+import SearchResult from './SearchResult';
+
 import "./SearchUnit.scss";
 
 //import ReactGA from 'react-ga';
@@ -30,7 +32,16 @@ class SearchUnit extends React.Component {
   componentDidUpdate(prevProps) {
     //When data arrives
     if (prevProps.entries.length !== this.props.entries.length) {
-      this.filterEntries("All");
+      this.filterEntries('All');
+    }
+
+    //If we get a new seed cat
+    if (prevProps.seedCategory !==this.props.seedCategory){
+      this.filterEntries(this.props.seedCategory);
+      
+      //Set search bar to focus
+      this.searchInput.current.focus();
+      this.searchInput.current.click();
     }
   }
 
@@ -59,9 +70,9 @@ class SearchUnit extends React.Component {
         : searchResults[i];
 
       resultsGroup.push(
-        <div key={i}>
-          <h2>{item.fields.Name}</h2>
-        </div>
+        
+          <SearchResult key={i} item={item.fields} />
+        
       );
     }
     return resultsGroup;
@@ -97,20 +108,24 @@ class SearchUnit extends React.Component {
       categorizedResults,
       searchResults: categorizedResults
     });
+
   }
 
   searchEntries(e) {
     let { categorizedResults } = this.state;
 
-    let { value } = e.target;
+    let { value } = this.searchInput.current;
 
     if (value.length < 2) {
+      //Set to all in cat
+      this.setState({ searchResults: categorizedResults });
       return;
     }
 
     const options = {
       includeScore: false,
       keys: ["fields.Name", "fields.Description"],
+      threshold: .5,
     };
 
     const fuse = new Fuse(categorizedResults, options);
@@ -120,6 +135,8 @@ class SearchUnit extends React.Component {
   }
 
   render() {
+
+    let { isSearchMode } = this.props;
 
     return (
       <div className="SearchUnit">
@@ -142,7 +159,11 @@ class SearchUnit extends React.Component {
             onKeyUp={this.searchEntries}
           />
         </div>
-        <div className="ResultsContainer">{this.generateResults()}</div>
+        {
+          isSearchMode ? (
+            <div className="ResultsContainer">{this.generateResults()}</div>
+          ) : null
+        }   
       </div>
     );
   }

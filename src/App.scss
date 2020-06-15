@@ -14,6 +14,8 @@ body {
   overflow: auto;
 }
 
+h1,h2,h3,h4,h5{ font-weight: bolder; line-height: .1em;}
+
 h1{
   font-size: 24px;
   color: var(--colorLightGray);
@@ -22,13 +24,36 @@ h1{
   line-height: 30px;
 }
 
-a {color: var(--colorMidGray); }
-a:visited {color: var(--colorMidGray); }
-a:active {color: var(--colorMarigold); }
-
-p {
-  font-size: 11px;
+h2{
+  font-size: 18px;
+  color: var(--colorCaramel);
 }
+
+h3{
+  font-size: 16px;
+  color: var(--colorDarkGray);
+}
+
+h4{
+  font-size: 14px;
+  color: var(--colorCaramel);
+}
+
+p{
+  font-weight: normal;
+  color: var(--colorMidGray);
+  font-size: 12px;
+}
+
+a{ 
+  font-size: 12px;
+  color: var(--colorCaramel);
+}
+
+a {color: var(--colorCaramel); }
+a:visited {color: var(--colorCaramel); }
+a:active {color: var(--colorCaramel); }
+
 
 .App {
   position: absolute;
