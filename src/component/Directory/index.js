@@ -19,7 +19,7 @@ class Directory extends React.Component {
       relevantEntries: [],
       searchMode: false,
       categories: [],
-      seedCategory: null
+      seedCategory: null,
     };
 
     // Binding
@@ -38,16 +38,15 @@ class Directory extends React.Component {
   }
 
   setEntries(entries) {
-
     // Create an array of all categories
     let categories = [];
-    entries.forEach( (item) => {
+    entries.forEach((item) => {
       let cat = item.fields.Industry;
-      
-      if( cat && categories.indexOf(cat) === -1 ){
+
+      if (cat && categories.indexOf(cat) === -1) {
         categories.push(cat);
       }
-    })
+    });
 
     this.setState({
       allEntries: entries,
@@ -73,7 +72,7 @@ class Directory extends React.Component {
     this.setState({ searchMode: value });
   }
 
-  handleCategoryClick(value){
+  handleCategoryClick(value) {
     this.setState({ seedCategory: value });
   }
 
@@ -83,7 +82,7 @@ class Directory extends React.Component {
 
     categories.forEach((item, index) => {
       optionsGroup.push(
-        <span onClick = {() => this.handleCategoryClick(item)}>{item}</span>
+        <span onClick={() => this.handleCategoryClick(item)}>{item}</span>
       );
     });
 
@@ -96,26 +95,37 @@ class Directory extends React.Component {
     return (
       <div className="Directory">
         <PageContainer>
-          <div className="Wrapper" data-searchmode={searchMode}>
-            <div className="VideoWrapper">
-              <video autoPlay playsInline muted loop src={bgvideo}></video>
-            </div>
+          <div className="Wrapper" data-searchmode={searchMode} >
+            <div className="WrapperInner">
+              <div className="VideoWrapper">
+                <video autoPlay playsInline muted loop src={bgvideo}></video>
+              </div>
 
-            <div className="Welcome" onClick={() => this.setSearchMode(false)}>
-              <div className="Accent"></div>
-              <h1>{`Discover ${allEntries.length} Irish black-owned businesses`}</h1>
-            </div>
+              <div
+                className="Welcome"
+                onClick={() => this.setSearchMode(false)}
+              >
+                <div className="Accent"></div>
+                <h1>{`Discover ${allEntries.length} Irish black-owned businesses`}</h1>
+              </div>
 
-            <div
-              className="SearchContainer"
-              onClick={() => this.setSearchMode(true)}
-            >
-              <SearchUnit entries={allEntries} categories={categories} seedCategory={seedCategory} isSearchMode={searchMode}/>
-            </div>
-            <div className="CategoryHotlinksContainer" data-active={searchMode}>
-              {
-                 this.generateCategoryLinks()
-              }
+              <div
+                className="SearchContainer"
+                onClick={() => this.setSearchMode(true)}
+              >
+                <SearchUnit
+                  entries={allEntries}
+                  categories={categories}
+                  seedCategory={seedCategory}
+                  isSearchMode={searchMode}
+                />
+              </div>
+              <div
+                className="CategoryHotlinksContainer"
+                data-active={searchMode}
+              >
+                {this.generateCategoryLinks()}
+              </div>
             </div>
           </div>
         </PageContainer>

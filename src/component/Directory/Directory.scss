@@ -2,8 +2,15 @@
     .Wrapper {
         height: 100vh;
         width: 100vw;
-        margin: 16px;
         overflow-y: scroll;
+
+        .WrapperInner{
+            margin: 3vw;
+            
+            @media only screen and (min-width: 768px) {
+                margin: 20vw;
+            }
+        }
 
         .VideoWrapper {
             position: absolute;
@@ -50,7 +57,7 @@
         &[data-searchmode="true"] {
             .Welcome {
                 opacity: .3;
-                transform: translateY(-10vh) scale(.95);
+                transform: translateY(-15vh) scale(.95);
             }
 
             .SearchContainer {
