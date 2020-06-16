@@ -8,13 +8,14 @@ import bgvideo from "../../assets/videos/ibo-bg-r1.mp4";
 import { getEntries } from "../../utils/data-helpers";
 import SearchUnit from "./SearchUnit";
 
-//import ReactGA from 'react-ga';
+import ReactGA from "react-ga";
 
 class Directory extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      awaitingData: true,
       allEntries: [],
       relevantEntries: [],
       searchMode: false,
@@ -29,8 +30,8 @@ class Directory extends React.Component {
 
   componentDidMount() {
     // Track
-    // ReactGA.initialize('UA-165438248-1');
-    // ReactGA.pageview(window.location.pathname + window.location.search);
+    ReactGA.initialize("G-2HHY5QRFXT");
+    ReactGA.pageview(window.location.pathname + window.location.search);
 
     getEntries((data) => {
       this.setEntries(data);
@@ -40,8 +41,9 @@ class Directory extends React.Component {
   setEntries(entries) {
     // Create an array of all categories
     let categories = [];
+
     entries.forEach((item) => {
-      let cat = item.fields.Industry;
+      let cat = item.fields.Category;
 
       if (cat && categories.indexOf(cat) === -1) {
         categories.push(cat);
@@ -49,6 +51,7 @@ class Directory extends React.Component {
     });
 
     this.setState({
+      awaitingData: false,
       allEntries: entries,
       relevantEntries: entries,
       categories,
@@ -82,7 +85,9 @@ class Directory extends React.Component {
 
     categories.forEach((item, index) => {
       optionsGroup.push(
-        <span onClick={() => this.handleCategoryClick(item)}>{item}</span>
+        <span key={index} onClick={() => this.handleCategoryClick(item)}>
+          {item}
+        </span>
       );
     });
 
@@ -90,43 +95,57 @@ class Directory extends React.Component {
   }
 
   render() {
-    let { allEntries, searchMode, categories, seedCategory } = this.state;
+    let {
+      awaitingData,
+      allEntries,
+      searchMode,
+      categories,
+      seedCategory,
+    } = this.state;
 
     return (
       <div className="Directory">
         <PageContainer>
-          <div className="Wrapper" data-searchmode={searchMode} >
-            <div className="WrapperInner">
-              <div className="VideoWrapper">
-                <video autoPlay playsInline muted loop src={bgvideo}></video>
-              </div>
+          <div className="Wrapper" data-searchmode={searchMode}>
+            {!awaitingData ? (
+              <div className="WrapperInner">
+                <div className="VideoWrapper">
+                  <video autoPlay playsInline muted loop src={bgvideo}></video>
+                </div>
 
-              <div
-                className="Welcome"
-                onClick={() => this.setSearchMode(false)}
-              >
-                <div className="Accent"></div>
-                <h1>{`Discover ${allEntries.length} Irish black-owned businesses`}</h1>
-              </div>
+                <div
+                  className="Welcome"
+                  onClick={() => this.setSearchMode(false)}
+                >
+                  <div className="Accent"></div>
+                  <h1>{`Discover ${allEntries.length} Irish black-owned businesses`}</h1>
+                </div>
 
-              <div
-                className="SearchContainer"
-                onClick={() => this.setSearchMode(true)}
-              >
-                <SearchUnit
-                  entries={allEntries}
-                  categories={categories}
-                  seedCategory={seedCategory}
-                  isSearchMode={searchMode}
-                />
+                <div
+                  className="SearchContainer"
+                  onClick={() => this.setSearchMode(true)}
+                >
+                  <SearchUnit
+                    entries={allEntries}
+                    categories={categories}
+                    seedCategory={seedCategory}
+                    isSearchMode={searchMode}
+                  />
+                </div>
+                <div
+                  className="CategoryHotlinksContainer"
+                  data-active={searchMode}
+                >
+                  <div className="CategoriesEyebrow">
+                    <h4>Categories</h4>
+                  </div>
+
+                  <div className="CategoryLinksContainer">
+                    {this.generateCategoryLinks()}
+                  </div>
+                </div>
               </div>
-              <div
-                className="CategoryHotlinksContainer"
-                data-active={searchMode}
-              >
-                {this.generateCategoryLinks()}
-              </div>
-            </div>
+            ) : null}
           </div>
         </PageContainer>
       </div>

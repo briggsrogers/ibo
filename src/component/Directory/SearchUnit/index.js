@@ -1,7 +1,7 @@
 import React from "react";
 import Fuse from "fuse.js";
 
-import SearchResult from './SearchResult';
+import SearchResult from "./SearchResult";
 
 import "./SearchUnit.scss";
 
@@ -19,6 +19,7 @@ class SearchUnit extends React.Component {
     };
 
     this.searchInput = React.createRef(this.searchInput);
+    this.categorySelect = React.createRef(this.categorySelect);
 
     //Binding
     this.handleDropDownChange = this.handleDropDownChange.bind(this);
@@ -26,22 +27,26 @@ class SearchUnit extends React.Component {
   }
 
   componentDidMount() {
-    this.searchInput.current.focus();
+    //this.searchInput.current.focus();
+    this.filterEntries("All");
   }
 
   componentDidUpdate(prevProps) {
     //When data arrives
     if (prevProps.entries.length !== this.props.entries.length) {
-      this.filterEntries('All');
+      this.filterEntries("All");
     }
 
     //If we get a new seed cat
-    if (prevProps.seedCategory !==this.props.seedCategory){
+    if (prevProps.seedCategory !== this.props.seedCategory) {
       this.filterEntries(this.props.seedCategory);
-      
+
+      this.categorySelect.current.value = this.props.seedCategory;
+
       //Set search bar to focus
-      this.searchInput.current.focus();
+      //this.searchInput.current.focus();
       this.searchInput.current.click();
+      this.searchInput.current.value = "";
     }
   }
 
@@ -69,11 +74,11 @@ class SearchUnit extends React.Component {
         ? searchResults[i].item
         : searchResults[i];
 
-      resultsGroup.push(
-        
-          <SearchResult key={i} item={item.fields} />
-        
-      );
+      resultsGroup.push(<SearchResult key={i} item={item.fields} />);
+    }
+    
+    if(searchResults.length === 0){
+      resultsGroup.push(<div className="NoResult"><h1>No Results</h1></div>);
     }
     return resultsGroup;
   }
@@ -96,19 +101,18 @@ class SearchUnit extends React.Component {
 
     //If all, use all entries
     if (value === "All") {
-      this.setState({ categorizedResults: entries, searchResults: [] });
+      this.setState({ categorizedResults: entries, searchResults: entries });
       return;
     }
 
     categorizedResults = entries.filter((item) => {
-      return item.fields.Industry === value;
+      return item.fields.Category === value;
     });
 
     this.setState({
       categorizedResults,
-      searchResults: categorizedResults
+      searchResults: categorizedResults,
     });
-
   }
 
   searchEntries(e) {
@@ -124,8 +128,8 @@ class SearchUnit extends React.Component {
 
     const options = {
       includeScore: false,
-      keys: ["fields.Name", "fields.Description"],
-      threshold: .5,
+      keys: ["fields.Name", "fields.Description", "fields.Title"],
+      threshold: 0.5,
     };
 
     const fuse = new Fuse(categorizedResults, options);
@@ -135,8 +139,9 @@ class SearchUnit extends React.Component {
   }
 
   render() {
-
     let { isSearchMode } = this.props;
+    let { searchResults } = this.state;
+    let resultNoun = searchResults.length === 1 ? "result" : "results";
 
     return (
       <div className="SearchUnit">
@@ -147,6 +152,7 @@ class SearchUnit extends React.Component {
               e.stopPropagation();
             }}
             onChange={this.handleDropDownChange}
+            ref={this.categorySelect}
           >
             <option value="All">All</option>
 
@@ -155,15 +161,20 @@ class SearchUnit extends React.Component {
           <input
             ref={this.searchInput}
             type="text"
-            placeholder="Search..."
+            placeholder="Search names, products or services"
             onKeyUp={this.searchEntries}
           />
         </div>
-        {
-          isSearchMode ? (
-            <div className="ResultsContainer">{this.generateResults()}</div>
-          ) : null
-        }   
+        {isSearchMode ? (
+          <div className="ResultsContainer">
+            {searchResults.length > 0 ? (
+              <div className="ResultsEyebrow">
+                <h3>{`${searchResults.length} ${resultNoun}`}</h3>
+              </div>
+            ) : null}
+            {this.generateResults()}
+          </div>
+        ) : null}
       </div>
     );
   }

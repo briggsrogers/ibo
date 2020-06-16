@@ -4,11 +4,11 @@
         width: 100vw;
         overflow-y: scroll;
 
-        .WrapperInner{
-            margin: 3vw;
-            
+        .WrapperInner {
+            margin: 3vw 3vw 0 3vw;
+
             @media only screen and (min-width: 768px) {
-                margin: 20vw;
+                margin: 20vw 20vw 0 20vw;
             }
         }
 
@@ -41,6 +41,7 @@
             transform: translate3d(0, 0, 0);
             transition: transform, opacity, cubic-bezier(0.61, 1, 0.88, 1) .2s;
             margin-top: 20vh;
+            user-select: none;
 
             .Accent {
                 width: 30px;
@@ -68,20 +69,35 @@
         .CategoryHotlinksContainer {
             position: relative;
             width: 100%;
-            display: flex;
-            flex-direction: row;
-            overflow-x: scroll;
-            margin-top: 10px;
-
-            scroll-snap-type: x mandatory;
+            margin-top: 25px;
 
             &[data-active="true"] {
                 display: none;
             }
 
+            .CategoriesEyebrow {
+                width: 100px;
+                display: flex;
+
+                h4{
+                    color: white;
+                    opacity: 0.6;
+                }
+            }
+
+            .CategoryLinksContainer {
+                display: flex;
+                flex-direction: row;
+                overflow-x: scroll;
+                scroll-snap-type: x mandatory;
+
+                @media only screen and (min-width: 768px) {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+                }
+            }
 
             animation: categoryBuildIn cubic-bezier(0.61, 1, 0.88, 1) .2s;
-
 
             @keyframes categoryBuildIn {
                 from {
@@ -101,15 +117,20 @@
                 justify-content: center;
                 align-items: center;
                 background-color: var(--colorDarkGray);
+                border: 1px solid rgba(0, 0, 0, .3);
                 border-radius: 6px;
                 margin: 4px;
-                padding: 12px;
+                padding: 14px;
                 min-width: 110px;
                 font-size: 12px;
                 color: var(--colorCocoaLight);
-                border: 1px rgba(0, 0, 0, .3);
-                word-break: break-all;
 
+                word-break: break-all;
+                user-select: none;
+
+                &:hover {
+                    color: var(--colorCaramel);
+                }
             }
         }
     }

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "http://ibo-dev.s3-website-eu-west-1.amazonaws.com/precache-manifest.7f6a9b133a5b46584dfd9ef03b64f3c0.js"
+  "http://ibo-dev.s3-website-eu-west-1.amazonaws.com/precache-manifest.ae422fb362a3b1689a677981530b1e29.js"
 );
 
 self.addEventListener('message', (event) => {

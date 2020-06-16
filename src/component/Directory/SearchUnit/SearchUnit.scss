@@ -47,8 +47,21 @@
     }
 
     .ResultsContainer{
-        margin-top: 25px;
+       
         overflow-y: scroll;
+
+        .ResultsEyebrow{
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            color: white;
+
+            h3{
+                color: var(--colorOffWhite);
+                opacity: .6;
+            }
+        }
 
         h2{
             color: white;

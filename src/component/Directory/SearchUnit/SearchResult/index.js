@@ -12,7 +12,7 @@ class SearchResult extends React.Component {
       <div className="SearchResult">
         <div className="SearchInfo">
           <h3>{item.Name}</h3>
-          <h4>{item.Industry}</h4>
+          <h4>{item.Title}</h4>
           <p>{item.Description}</p>
           { 
             item.Website ? (
