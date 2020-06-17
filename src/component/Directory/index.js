@@ -1,4 +1,5 @@
 import React from "react";
+import CountUp from 'react-countup';
 import "./Directory.scss";
 
 import PageContainer from "../PageContainer";
@@ -26,6 +27,9 @@ class Directory extends React.Component {
     // Binding
     this.setEntries = this.setEntries.bind(this);
     this.setSearchMode = this.setSearchMode.bind(this);
+
+    //Ref
+    this.CountUp = React.createRef(this.CountUp);
   }
 
   componentDidMount() {
@@ -118,7 +122,9 @@ class Directory extends React.Component {
                   onClick={() => this.setSearchMode(false)}
                 >
                   <div className="Accent"></div>
-                  <h1>{`Discover ${allEntries.length} Irish black-owned businesses`}</h1>
+                  <h1>
+                  <CountUp start={2} end={allEntries.length} delay={0}/>
+                    {` Irish black-owned businesses.`}</h1>
                 </div>
 
                 <div

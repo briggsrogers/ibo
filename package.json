@@ -12,6 +12,7 @@
     "node-sass": "^4.13.1",
     "react": "^16.13.1",
     "react-awesome-slider": "^4.1.0",
+    "react-countup": "^4.3.3",
     "react-dom": "^16.13.1",
     "react-flickity-component": "^3.5.0",
     "react-ga": "^2.7.0",
