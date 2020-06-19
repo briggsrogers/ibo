@@ -123,7 +123,7 @@ class Directory extends React.Component {
                 >
                   <div className="Accent"></div>
                   <h1>
-                  <CountUp start={2} end={allEntries.length} delay={0}/>
+                  <CountUp start={100} end={allEntries.length} delay={0}/>
                     {` Irish black-owned businesses.`}</h1>
                 </div>
 

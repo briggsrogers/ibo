@@ -17,6 +17,7 @@
     "react-flickity-component": "^3.5.0",
     "react-ga": "^2.7.0",
     "react-responsive-carousel": "^3.1.51",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1"
   },
   "scripts": {
