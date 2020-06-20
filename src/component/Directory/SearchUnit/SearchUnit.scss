@@ -6,7 +6,7 @@
 
     .SearchBarContainer{
         background-color: var(--colorOffWhite);
-        height: 50px;
+        height: 45px;
         padding: 8px;
         border-radius: 4px;
 
@@ -57,10 +57,25 @@
             justify-content: flex-end;
             color: white;
 
-            h3{
+            h4{
                 color: var(--colorOffWhite);
                 opacity: .6;
             }
+        }
+
+        .NoResultsPlaceHolder{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 25px;
+            margin-top: 25px;
+            background-color: var(--colorOffWhite);
+            min-height: 100px;
+            border-bottom: 1px solid var(--colorLighterGray);
+            border-radius: 6px;
+            // color: var(--colorMidGray);
         }
 
         h2{

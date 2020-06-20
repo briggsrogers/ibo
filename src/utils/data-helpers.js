@@ -1,6 +1,9 @@
 import axios from "axios";
 
-const AIRTABLE_ROOT = 'https://api.airtable.com/v0/appkTWOL5iNijtSO8/Imported%20table?view=Grid%20view'
+const AIRTABLE_ROOT = 'https://api.airtable.com/v0/appkTWOL5iNijtSO8/production-db?view=Grid%20view';
+const AIRTABLE_CONTENT_ROOT = 'https://api.airtable.com/v0/appkTWOL5iNijtSO8/app-content?view=Grid%20view';
+const AIRTABLE_FEATURE_ROOT = 'https://api.airtable.com/v0/appkTWOL5iNijtSO8/featured?view=Grid%20view';
+
 
 export const getEntries = (onSuccess) => {
 
@@ -56,3 +59,37 @@ export const getEntries = (onSuccess) => {
   //First Fetch
   fetchBatch(AIRTABLE_ROOT, onSuccess);
 };
+
+
+export const getContent = (onSuccess) => {
+  axios
+    .get(AIRTABLE_CONTENT_ROOT, 
+      { 
+        headers: {
+          "Authorization": "Bearer key7QpnzX5Kw0bc6V"
+        } 
+      })
+    .then(function(response) {
+      // handle success
+      if (response.status === 200) {
+        onSuccess(response.data);
+      }
+    });
+}
+
+
+export const getFeatured = (onSuccess) => {
+  axios
+    .get(AIRTABLE_FEATURE_ROOT, 
+      { 
+        headers: {
+          "Authorization": "Bearer key7QpnzX5Kw0bc6V"
+        } 
+      })
+    .then(function(response) {
+      // handle success
+      if (response.status === 200) {
+        onSuccess(response.data);
+      }
+    });
+}

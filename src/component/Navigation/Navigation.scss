@@ -1,0 +1,39 @@
+.NavContainer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 25px 0 25px;
+
+    @media only screen and (min-width: 768px) {
+        margin: 15px 25px 0 25px;
+    }
+
+    .LogoContainer{
+        img{
+            // margin: 15px 0 0 15px;
+            // width: 35px;
+            display: none;
+        }
+    }
+
+    .NavItems{
+        display: flex;
+        flex-direction: row;
+        margin: 18px;
+        margin-right: 0;
+
+        a{
+            color: white;
+            text-decoration: none;
+            margin: 15px 0 15px 10px;
+        }
+    }
+    
+}

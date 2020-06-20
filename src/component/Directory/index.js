@@ -6,8 +6,9 @@ import PageContainer from "../PageContainer";
 
 import bgvideo from "../../assets/videos/ibo-bg-r1.mp4";
 
-import { getEntries } from "../../utils/data-helpers";
+import { getEntries, getFeatured } from "../../utils/data-helpers";
 import SearchUnit from "./SearchUnit";
+import About from "../About";
 
 import ReactGA from "react-ga";
 
@@ -26,6 +27,7 @@ class Directory extends React.Component {
 
     // Binding
     this.setEntries = this.setEntries.bind(this);
+    this.setFeatured = this.setFeatured.bind(this);
     this.setSearchMode = this.setSearchMode.bind(this);
 
     //Ref
@@ -34,12 +36,16 @@ class Directory extends React.Component {
 
   componentDidMount() {
     // Track
-    ReactGA.initialize("G-2HHY5QRFXT");
-    ReactGA.pageview(window.location.pathname + window.location.search);
+    // ReactGA.initialize("G-2HHY5QRFXT");
+    // ReactGA.pageview(window.location.pathname + window.location.search);
 
     getEntries((data) => {
       this.setEntries(data);
     });
+
+    getFeatured((data) => {
+      this.setFeatured(data);
+    })
   }
 
   setEntries(entries) {
@@ -98,6 +104,29 @@ class Directory extends React.Component {
     return optionsGroup;
   }
 
+  setFeatured(featured){
+
+    console.log('SF', featured)
+    this.setState({
+      featured: featured
+    })
+  }
+
+  generateFeatureLinks() {
+    let { featured } = this.state;
+    let featuredGroup = [];
+
+    featured.records.forEach((item, index) => {
+      featuredGroup.push(
+        <span key={index}>
+          {item.name}
+        </span>
+      );
+    });
+
+    return featuredGroup;
+  }
+
   render() {
     let {
       awaitingData,
@@ -125,6 +154,7 @@ class Directory extends React.Component {
                   <h1>
                   <CountUp start={100} end={allEntries.length} delay={0}/>
                     {` Irish black-owned businesses.`}</h1>
+                    {/* <p>IBO is partnering with consectetur adipiscing elit, sed do eiusmod tempor. </p> */}
                 </div>
 
                 <div
@@ -149,9 +179,20 @@ class Directory extends React.Component {
                   <div className="CategoryLinksContainer">
                     {this.generateCategoryLinks()}
                   </div>
+
+                  <div className="CategoriesEyebrow">
+                    <h4>Featured</h4>
+                  </div>
+
+                  <div className="FeaturedLinksContainer">
+                    {this.generateFeatureLinks()}
+                  </div>
                 </div>
               </div>
             ) : null}
+        
+          <About content={this.props.content}/>
+
           </div>
         </PageContainer>
       </div>

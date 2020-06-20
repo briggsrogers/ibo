@@ -78,7 +78,7 @@ class SearchUnit extends React.Component {
     }
     
     if(searchResults.length === 0){
-      resultsGroup.push(<div className="NoResult"><h1>No Results</h1></div>);
+      resultsGroup.push(<div className="NoResultsPlaceHolder"><p>{`Hmm, we couldn't find anything for "${this.searchInput.current.value}". Know a business that's missing? Add them today.`}</p></div> );
     }
     return resultsGroup;
   }
@@ -169,7 +169,7 @@ class SearchUnit extends React.Component {
           <div className="ResultsContainer">
             {searchResults.length > 0 ? (
               <div className="ResultsEyebrow">
-                <h3>{`${searchResults.length} ${resultNoun}`}</h3>
+                <h4>{`${searchResults.length} ${resultNoun}`}</h4>
               </div>
             ) : null}
             {this.generateResults()}
