@@ -1,16 +1,19 @@
 import React from "react";
-import CountUp from 'react-countup';
+import CountUp from "react-countup";
 import "./Directory.scss";
 
 import PageContainer from "../PageContainer";
 
 import bgvideo from "../../assets/videos/ibo-bg-r1.mp4";
 
+import iconTech from "../../assets/images/icon-technology.png";
+
 import { getEntries, getFeatured } from "../../utils/data-helpers";
 import SearchUnit from "./SearchUnit";
 import About from "../About";
 
-import ReactGA from "react-ga";
+const ICON_ROOT = 'https://ibo-assets.s3-eu-west-1.amazonaws.com/icons/';
+
 
 class Directory extends React.Component {
   constructor(props) {
@@ -45,7 +48,7 @@ class Directory extends React.Component {
 
     getFeatured((data) => {
       this.setFeatured(data);
-    })
+    });
   }
 
   setEntries(entries) {
@@ -96,6 +99,7 @@ class Directory extends React.Component {
     categories.forEach((item, index) => {
       optionsGroup.push(
         <span key={index} onClick={() => this.handleCategoryClick(item)}>
+          <img src={`${ICON_ROOT}${item.toLowerCase().replace('& ','%26').replace(' ', '')}.png`} alt=""/>
           {item}
         </span>
       );
@@ -104,12 +108,10 @@ class Directory extends React.Component {
     return optionsGroup;
   }
 
-  setFeatured(featured){
-
-    console.log('SF', featured)
+  setFeatured(featured) {
     this.setState({
-      featured: featured
-    })
+      featured: featured,
+    });
   }
 
   generateFeatureLinks() {
@@ -117,11 +119,7 @@ class Directory extends React.Component {
     let featuredGroup = [];
 
     featured.records.forEach((item, index) => {
-      featuredGroup.push(
-        <span key={index}>
-          {item.name}
-        </span>
-      );
+      featuredGroup.push(<span key={index}>{item.name}</span>);
     });
 
     return featuredGroup;
@@ -139,8 +137,8 @@ class Directory extends React.Component {
     return (
       <div className="Directory">
         <PageContainer>
-          <div className="Wrapper" data-searchmode={searchMode}>
-            {!awaitingData ? (
+          {!awaitingData ? (
+            <div className="Wrapper" data-searchmode={searchMode}>
               <div className="WrapperInner">
                 <div className="VideoWrapper">
                   <video autoPlay playsInline muted loop src={bgvideo}></video>
@@ -152,9 +150,10 @@ class Directory extends React.Component {
                 >
                   <div className="Accent"></div>
                   <h1>
-                  <CountUp start={100} end={allEntries.length} delay={0}/>
-                    {` Irish black-owned businesses.`}</h1>
-                    {/* <p>IBO is partnering with consectetur adipiscing elit, sed do eiusmod tempor. </p> */}
+                    <CountUp start={100} end={allEntries.length} delay={0} />
+                    {` Irish black-owned businesses.`}
+                  </h1>
+                  {/* <p>IBO is partnering with consectetur adipiscing elit, sed do eiusmod tempor. </p> */}
                 </div>
 
                 <div
@@ -189,11 +188,9 @@ class Directory extends React.Component {
                   </div>
                 </div>
               </div>
-            ) : null}
-        
-          <About content={this.props.content}/>
-
-          </div>
+              <About content={this.props.content} />
+            </div>
+          ) : null}
         </PageContainer>
       </div>
     );
