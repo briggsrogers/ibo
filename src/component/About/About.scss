@@ -1,10 +1,10 @@
 .About{
     background-color: var(--colorCocoaLightest);
-    margin: 50px 5vw 0 5vw;
+    margin: 50px 5vw 50px 5vw;
     padding: 8vw;
 
     @media only screen and (min-width: 768px) {
-        margin: 150px 20vw 0 20vw;
+        margin: 150px 20vw 50px 20vw;
     } 
 
     h1{
@@ -21,7 +21,8 @@
         background-color: var(--colorCocoa);
     }
 
-    animation: initialBuildIn cubic-bezier(0.61, 1, 0.88, 1) .2s forwards;
+    opacity: 0;
+    animation: initialBuildIn cubic-bezier(0.61, 1, 0.88, 1) .3s .3s forwards;
 
     @keyframes initialBuildIn {
         from {

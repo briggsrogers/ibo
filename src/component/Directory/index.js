@@ -4,16 +4,13 @@ import "./Directory.scss";
 
 import PageContainer from "../PageContainer";
 
-import bgvideo from "../../assets/videos/ibo-bg-r1.mp4";
-
-import iconTech from "../../assets/images/icon-technology.png";
-
 import { getEntries, getFeatured } from "../../utils/data-helpers";
 import SearchUnit from "./SearchUnit";
 import About from "../About";
 
-const ICON_ROOT = 'https://ibo-assets.s3-eu-west-1.amazonaws.com/icons/';
-
+const ICON_ROOT = "https://ibo-assets.s3-eu-west-1.amazonaws.com/icons/";
+const VIDEO_SRC =
+  "https://ibo-assets.s3-eu-west-1.amazonaws.com/video/ibo-bg.mp4";
 
 class Directory extends React.Component {
   constructor(props) {
@@ -84,7 +81,8 @@ class Directory extends React.Component {
     }
   }
 
-  setSearchMode(value) {
+  setSearchMode(e, value) {
+    e.stopPropagation();
     this.setState({ searchMode: value });
   }
 
@@ -99,7 +97,13 @@ class Directory extends React.Component {
     categories.forEach((item, index) => {
       optionsGroup.push(
         <span key={index} onClick={() => this.handleCategoryClick(item)}>
-          <img src={`${ICON_ROOT}${item.toLowerCase().replace('& ','%26').replace(' ', '')}.png`} alt=""/>
+          <img
+            src={`${ICON_ROOT}${item
+              .toLowerCase()
+              .replace("& ", "%26")
+              .replace(" ", "")}.png`}
+            alt=""
+          />
           {item}
         </span>
       );
@@ -138,27 +142,36 @@ class Directory extends React.Component {
       <div className="Directory">
         <PageContainer>
           {!awaitingData ? (
-            <div className="Wrapper" data-searchmode={searchMode}>
+            <div
+              className="Wrapper"
+              data-searchmode={searchMode}
+              onClick={(e) => this.setSearchMode(e, false)}
+            >
               <div className="WrapperInner">
                 <div className="VideoWrapper">
-                  <video autoPlay playsInline muted loop src={bgvideo}></video>
+                  <video
+                    autoPlay
+                    playsInline
+                    muted
+                    loop
+                    src={VIDEO_SRC}
+                  ></video>
                 </div>
 
                 <div
                   className="Welcome"
-                  onClick={() => this.setSearchMode(false)}
+                  onClick={(e) => this.setSearchMode(e, false)}
                 >
                   <div className="Accent"></div>
                   <h1>
                     <CountUp start={100} end={allEntries.length} delay={0} />
                     {` Irish black-owned businesses.`}
                   </h1>
-                  {/* <p>IBO is partnering with consectetur adipiscing elit, sed do eiusmod tempor. </p> */}
                 </div>
 
                 <div
                   className="SearchContainer"
-                  onClick={() => this.setSearchMode(true)}
+                  onClick={(e) => this.setSearchMode(e, true)}
                 >
                   <SearchUnit
                     entries={allEntries}
@@ -179,16 +192,30 @@ class Directory extends React.Component {
                     {this.generateCategoryLinks()}
                   </div>
 
-                  <div className="CategoriesEyebrow">
+                  {/* <div className="CategoriesEyebrow">
                     <h4>Featured</h4>
-                  </div>
+                  </div> */}
 
-                  <div className="FeaturedLinksContainer">
+                  {/* <div className="FeaturedLinksContainer">
                     {this.generateFeatureLinks()}
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <About content={this.props.content} />
+              <div className="FooterContainer">
+                <a
+                  href="https://instagram.com/irishblackowned"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="IGLinkOut"
+                >
+                  @irishblackowned
+                </a>
+                <footer>
+                  <p>&copy; Copyright 2020 | IBO</p>
+                  <br />
+                </footer>
+              </div>
             </div>
           ) : null}
         </PageContainer>

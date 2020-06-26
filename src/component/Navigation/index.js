@@ -18,14 +18,14 @@ class About extends React.Component {
               <img src={logo} alt=""/>
             </div>
 
-            <div className="NavItems">
+            {/* <div className="NavItems">
               <div className="Item">
                 <Link to="/">Directory</Link>
               </div>
               <div className="Item">
                 <Link to="/about">About IBO</Link>
               </div>
-            </div>
+            </div> */}
           </div>
       )
   }

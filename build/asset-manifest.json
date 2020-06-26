@@ -1,23 +1,22 @@
 {
   "files": {
-    "main.css": "http://ibo-dev.s3-website-eu-west-1.amazonaws.com/static/css/main.adefcefe.chunk.css",
-    "main.js": "http://ibo-dev.s3-website-eu-west-1.amazonaws.com/static/js/main.0ef00cd9.chunk.js",
-    "main.js.map": "http://ibo-dev.s3-website-eu-west-1.amazonaws.com/static/js/main.0ef00cd9.chunk.js.map",
-    "runtime-main.js": "http://ibo-dev.s3-website-eu-west-1.amazonaws.com/static/js/runtime-main.208e988d.js",
-    "runtime-main.js.map": "http://ibo-dev.s3-website-eu-west-1.amazonaws.com/static/js/runtime-main.208e988d.js.map",
-    "static/js/2.4c076ced.chunk.js": "http://ibo-dev.s3-website-eu-west-1.amazonaws.com/static/js/2.4c076ced.chunk.js",
-    "static/js/2.4c076ced.chunk.js.map": "http://ibo-dev.s3-website-eu-west-1.amazonaws.com/static/js/2.4c076ced.chunk.js.map",
-    "index.html": "http://ibo-dev.s3-website-eu-west-1.amazonaws.com/index.html",
-    "precache-manifest.198b50c0c057a855e800a2d79c7ffee8.js": "http://ibo-dev.s3-website-eu-west-1.amazonaws.com/precache-manifest.198b50c0c057a855e800a2d79c7ffee8.js",
-    "service-worker.js": "http://ibo-dev.s3-website-eu-west-1.amazonaws.com/service-worker.js",
-    "static/css/main.adefcefe.chunk.css.map": "http://ibo-dev.s3-website-eu-west-1.amazonaws.com/static/css/main.adefcefe.chunk.css.map",
-    "static/js/2.4c076ced.chunk.js.LICENSE.txt": "http://ibo-dev.s3-website-eu-west-1.amazonaws.com/static/js/2.4c076ced.chunk.js.LICENSE.txt",
-    "static/media/ibo-bg-r1.mp4": "http://ibo-dev.s3-website-eu-west-1.amazonaws.com/static/media/ibo-bg-r1.3c89f243.mp4"
+    "main.css": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/static/css/main.bdaa9114.chunk.css",
+    "main.js": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/static/js/main.fc4b64ce.chunk.js",
+    "main.js.map": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/static/js/main.fc4b64ce.chunk.js.map",
+    "runtime-main.js": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/static/js/runtime-main.f14cb7c0.js",
+    "runtime-main.js.map": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/static/js/runtime-main.f14cb7c0.js.map",
+    "static/js/2.d6fa8808.chunk.js": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/static/js/2.d6fa8808.chunk.js",
+    "static/js/2.d6fa8808.chunk.js.map": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/static/js/2.d6fa8808.chunk.js.map",
+    "index.html": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/index.html",
+    "precache-manifest.a0d52ad7b77a22a7593f26bf4d2b4a39.js": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/precache-manifest.a0d52ad7b77a22a7593f26bf4d2b4a39.js",
+    "service-worker.js": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/service-worker.js",
+    "static/css/main.bdaa9114.chunk.css.map": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/static/css/main.bdaa9114.chunk.css.map",
+    "static/js/2.d6fa8808.chunk.js.LICENSE.txt": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/static/js/2.d6fa8808.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.208e988d.js",
-    "static/js/2.4c076ced.chunk.js",
-    "static/css/main.adefcefe.chunk.css",
-    "static/js/main.0ef00cd9.chunk.js"
+    "static/js/runtime-main.f14cb7c0.js",
+    "static/js/2.d6fa8808.chunk.js",
+    "static/css/main.bdaa9114.chunk.css",
+    "static/js/main.fc4b64ce.chunk.js"
   ]
 }

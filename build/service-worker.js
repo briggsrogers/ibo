@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "http://ibo-dev.s3-website-eu-west-1.amazonaws.com/precache-manifest.198b50c0c057a855e800a2d79c7ffee8.js"
+  "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/precache-manifest.a0d52ad7b77a22a7593f26bf4d2b4a39.js"
 );
 
 self.addEventListener('message', (event) => {
@@ -33,7 +33,7 @@ workbox.core.clientsClaim();
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("http://ibo-dev.s3-website-eu-west-1.amazonaws.com/index.html"), {
+workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/index.html"), {
   
   blacklist: [/^\/_/,/\/[^\/?]+\.[^\/]+$/],
 });
