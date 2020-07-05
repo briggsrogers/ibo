@@ -7,12 +7,16 @@
     min-height: 100px;
     border-bottom: 1px solid var(--colorLighterGray);
 
-    h3{
+    .Name{
         display: inline;
+        color: var(--colorDarkGray);
     }
 
-    h4{
+    .Location{
         margin-top: 5px;
+        display: block;
+        font-size: 11px;
+        color: var(--colorCocoa);
     }
     
     .Title{
@@ -49,7 +53,7 @@
         border-left: 1px solid var(--colorLightGray);
 
         img{ 
-            width: 40px; 
+            width: 35px; 
             margin-right: 10px;
             margin-left: 30px;
         }

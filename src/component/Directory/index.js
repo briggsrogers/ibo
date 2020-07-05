@@ -100,7 +100,7 @@ class Directory extends React.Component {
           <img
             src={`${ICON_ROOT}${item
               .toLowerCase()
-              .replace("& ", "%26")
+              .replace(" & ", "%26")
               .replace(" ", "")}.png`}
             alt=""
           />

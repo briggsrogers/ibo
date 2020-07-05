@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/static/css/main.bdaa9114.chunk.css",
-    "main.js": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/static/js/main.fc4b64ce.chunk.js",
-    "main.js.map": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/static/js/main.fc4b64ce.chunk.js.map",
+    "main.css": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/static/css/main.267abf24.chunk.css",
+    "main.js": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/static/js/main.b614e5b6.chunk.js",
+    "main.js.map": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/static/js/main.b614e5b6.chunk.js.map",
     "runtime-main.js": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/static/js/runtime-main.f14cb7c0.js",
     "runtime-main.js.map": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/static/js/runtime-main.f14cb7c0.js.map",
-    "static/js/2.d6fa8808.chunk.js": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/static/js/2.d6fa8808.chunk.js",
-    "static/js/2.d6fa8808.chunk.js.map": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/static/js/2.d6fa8808.chunk.js.map",
+    "static/js/2.afa14dc8.chunk.js": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/static/js/2.afa14dc8.chunk.js",
+    "static/js/2.afa14dc8.chunk.js.map": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/static/js/2.afa14dc8.chunk.js.map",
     "index.html": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/index.html",
-    "precache-manifest.a0d52ad7b77a22a7593f26bf4d2b4a39.js": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/precache-manifest.a0d52ad7b77a22a7593f26bf4d2b4a39.js",
+    "precache-manifest.72ee98db1ca7a6f19d43197b9ee37dc2.js": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/precache-manifest.72ee98db1ca7a6f19d43197b9ee37dc2.js",
     "service-worker.js": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/service-worker.js",
-    "static/css/main.bdaa9114.chunk.css.map": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/static/css/main.bdaa9114.chunk.css.map",
-    "static/js/2.d6fa8808.chunk.js.LICENSE.txt": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/static/js/2.d6fa8808.chunk.js.LICENSE.txt"
+    "static/css/main.267abf24.chunk.css.map": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/static/css/main.267abf24.chunk.css.map",
+    "static/js/2.afa14dc8.chunk.js.LICENSE.txt": "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/static/js/2.afa14dc8.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f14cb7c0.js",
-    "static/js/2.d6fa8808.chunk.js",
-    "static/css/main.bdaa9114.chunk.css",
-    "static/js/main.fc4b64ce.chunk.js"
+    "static/js/2.afa14dc8.chunk.js",
+    "static/css/main.267abf24.chunk.css",
+    "static/js/main.b614e5b6.chunk.js"
   ]
 }

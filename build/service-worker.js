@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/precache-manifest.a0d52ad7b77a22a7593f26bf4d2b4a39.js"
+  "http://www.irishblackowned.com.s3-website-eu-west-1.amazonaws.com/precache-manifest.72ee98db1ca7a6f19d43197b9ee37dc2.js"
 );
 
 self.addEventListener('message', (event) => {

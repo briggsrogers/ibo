@@ -11,11 +11,11 @@ class SearchResult extends React.Component {
     return (
       <div className="SearchResult">
         <div className="SearchInfo">
-          <h3>{item.Name}</h3>
+          <h4 className="Name">{item.Name}</h4>
           <span className="Title">{item.Title}</span>
           { 
             item.Location ? (
-              <h4>{item.Location}</h4>
+              <span className="Location">{item.Location}</span>
             ) : null
           }
          

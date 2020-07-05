@@ -7,7 +7,6 @@ import {
 
 import "./App.scss";
 
-import About from './component/About';
 import Directory from './component/Directory';
 import Navigation from './component/Navigation';
 
@@ -48,7 +47,7 @@ class App extends React.Component {
     return (
       <Router>
         <div className="App">
-        <Navigation/>
+        {/* <Navigation/> */}
         <Switch>
           <Route exact path="/">
             <Directory content={content}/>
