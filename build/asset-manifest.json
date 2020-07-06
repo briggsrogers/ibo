@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "https://ibo.vercel.app/static/css/main.267abf24.chunk.css",
+    "main.js": "https://ibo.vercel.app/static/js/main.589ae455.chunk.js",
+    "main.js.map": "https://ibo.vercel.app/static/js/main.589ae455.chunk.js.map",
+    "runtime-main.js": "https://ibo.vercel.app/static/js/runtime-main.f5423510.js",
+    "runtime-main.js.map": "https://ibo.vercel.app/static/js/runtime-main.f5423510.js.map",
+    "static/js/2.afa14dc8.chunk.js": "https://ibo.vercel.app/static/js/2.afa14dc8.chunk.js",
+    "static/js/2.afa14dc8.chunk.js.map": "https://ibo.vercel.app/static/js/2.afa14dc8.chunk.js.map",
+    "index.html": "https://ibo.vercel.app/index.html",
+    "precache-manifest.a1ef5cdf9939c8575f1ca43316f8ef1a.js": "https://ibo.vercel.app/precache-manifest.a1ef5cdf9939c8575f1ca43316f8ef1a.js",
+    "service-worker.js": "https://ibo.vercel.app/service-worker.js",
+    "static/css/main.267abf24.chunk.css.map": "https://ibo.vercel.app/static/css/main.267abf24.chunk.css.map",
+    "static/js/2.afa14dc8.chunk.js.LICENSE.txt": "https://ibo.vercel.app/static/js/2.afa14dc8.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f5423510.js",
+    "static/js/2.afa14dc8.chunk.js",
+    "static/css/main.267abf24.chunk.css",
+    "static/js/main.589ae455.chunk.js"
+  ]
+}

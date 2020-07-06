@@ -3,6 +3,7 @@ import CountUp from "react-countup";
 import "./Directory.scss";
 
 import PageContainer from "../PageContainer";
+import Spinner from "../Spinner";
 
 import { getEntries, getFeatured } from "../../utils/data-helpers";
 import SearchUnit from "./SearchUnit";
@@ -217,7 +218,7 @@ class Directory extends React.Component {
                 </footer>
               </div>
             </div>
-          ) : null}
+          ) : <Spinner/>}
         </PageContainer>
       </div>
     );
