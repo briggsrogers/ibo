@@ -83,9 +83,13 @@
             position: relative;
             width: 100%;
             margin-top: 25px;
+            mask-image: linear-gradient(to right, black 96%, transparent 100%);
 
-            mask-image: linear-gradient(to right, black 95%, transparent 100%);
+            @media only screen and (min-width: 768px) {
+                mask-image: none;
+            }
 
+            
             &[data-active="true"] {
                 display: none;
             }
