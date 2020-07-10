@@ -169,6 +169,12 @@
 
                 &:hover {
                     color: var(--colorCaramel);
+                    cursor: pointer;
+                }
+
+                &:active {
+                    transform: scale(.99);
+                    color: var(--colorMidGray);
                 }
 
                 img{
