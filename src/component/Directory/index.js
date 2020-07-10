@@ -154,7 +154,6 @@ class Directory extends React.Component {
                     autoPlay
                     playsInline
                     muted
-                    loop
                     src={VIDEO_SRC}
                   ></video>
                 </div>
