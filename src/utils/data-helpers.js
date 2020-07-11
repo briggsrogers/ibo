@@ -37,6 +37,8 @@ export const getEntries = (onSuccess) => {
         }
         else{
           //Have all records
+          //Filter to approved only
+          records = records.filter( (item) => item.fields.Approved === true );
           onSuccess(records);
         }
         
