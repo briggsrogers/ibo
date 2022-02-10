@@ -10,7 +10,7 @@
     "fuse.js": "^6.0.4",
     "mapbox-gl": "^1.9.0",
     "markdown": "^0.5.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "react": "^16.13.1",
     "react-awesome-slider": "^4.1.0",
     "react-countup": "^4.3.3",
